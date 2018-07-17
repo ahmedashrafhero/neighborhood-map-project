@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Neighborhood Map</title>
+	<link rel="stylesheet" href="css/style.css">
+ 
+</head>
+
+<body>
+   <div class="container">
+	    <div class="box">
+                <h2>Serach your locations</h2>
+                <input  value="" placeholder="Search…" type="search" name="filter" data-bind="textInput: query">
+   
+                <ul data-bind="foreach: searchResults">
+					<li> <a href="#" data-bind="text: name, click: $root.clickLocation"></a></li>
+                </ul>
+         
+				<h3>Wikipedia Links</h3>
+				<div class="wiki">
+					<ul data-bind="foreach: wikiLinks">
+						<li data-bind="html: $data"></li>
+					</ul>
+				</div>
+	   </div>
+	   
+      <div id="map"></div>
+
+	</div>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/knockout-3.4.2.js"></script>
+    <script src="js/app.js"></script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBm_f9EcE1aJQgUzXWaeZEA0DG8QWApu5I&v=3&callback=initMap" onerror="maperror()">
+    </script>
+
+</body>
+
+</html>
